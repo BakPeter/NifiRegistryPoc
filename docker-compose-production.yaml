@@ -1,0 +1,54 @@
+version: '3.4'
+
+services:
+  # production
+  nifi-production:
+    image: 'apache/nifi:latest'
+    restart: on-failure
+    environment:
+      - SINGLE_USER_CREDENTIALS_USERNAME=admin
+      - SINGLE_USER_CREDENTIALS_PASSWORD=Aa123456!Aa123456!
+      - NIFI_VARIABLE_REGISTRY_PROPERTIES=./custom-properties/props2.properties
+      # - NIFI_WEB_HTTPS_PORT=8443
+      - NIFI_WEB_HTTP_PORT=8080
+    ports:
+      # - 8443:8443
+      - 8080:8080
+      # - 8090:8090
+    volumes:
+      - D:\Docker\Data\nifi\nifi-registry-poc\production\database_repository:/opt/nifi/nifi-current/database_repository
+      - D:\Docker\Data\nifi\nifi-registry-poc\production\flowfile_repository:/opt/nifi/nifi-current/flowfile_repository
+      - D:\Docker\Data\nifi\nifi-registry-poc\production\content_repository:/opt/nifi/nifi-current/content_repository
+      - D:\Docker\Data\nifi\nifi-registry-poc\production\provenance_repository:/opt/nifi/nifi-current/provenance_repository
+      - D:\Docker\Data\nifi\nifi-registry-poc\production\state:/opt/nifi/nifi-current/state
+      - D:\Docker\Data\nifi\nifi-registry-poc\production\logs:/opt/nifi/nifi-current/logs
+      # uncomment the next line after copying the /conf directory from the container to your local directory to persist NiFi flows
+      # run command in bind mount folder:
+      #     docker cp <container-name>:/opt/nifi/nifi-current/conf D:\Docker\Data\nifi\nifi-registry-poc\production\conf
+      - D:\Docker\Data\nifi\nifi-registry-poc\production\conf:/opt/nifi/nifi-current/conf
+      # folder for user source
+      - D:\Docker\Data\nifi\nifi-registry-poc\production\_source:/opt/nifi/nifi-current/source
+      # folder for user target
+      - D:\Docker\Data\nifi\nifi-registry-poc\production\_target:/opt/nifi/nifi-current/target
+      # folder for temp data
+      - D:\Docker\Data\nifi\nifi-registry-poc\production\_temp-data:/opt/nifi/nifi-current/temp-data
+    networks:
+      - production
+
+  registry-production:
+    image: 'apache/nifi-registry:latest'
+    restart: on-failure
+    ports:
+      - 18080:18080
+    volumes:
+      # uncomment the next line after copying the /conf directory from the container to your local directory to persist Nifi-Regsitry data
+      # run command in bind mount folder:
+      #     docker cp <container-name>:opt/nifi-registry/nifi-registry-current/conf D:\Docker\Data\nifi-registry\nifi-registry-poc\production\conf
+      - D:\Docker\Data\nifi-registry\nifi-registry-poc\production\conf:/opt/nifi-registry/nifi-registry-current/conf
+      - D:\Docker\Data\nifi-registry\nifi-registry-poc\production\flow-storage:/opt/nifi-registry/nifi-registry-current/flow_storage
+      - D:\Docker\Data\nifi-registry\nifi-registry-poc\production\database:/opt/nifi-registry/nifi-registry-current/database
+    networks:
+      - production
+
+networks:
+  production:
