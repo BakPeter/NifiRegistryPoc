@@ -1,0 +1,2 @@
+defined static ip for containers.
+defined nifi user bukcet policies('Read' only?).
