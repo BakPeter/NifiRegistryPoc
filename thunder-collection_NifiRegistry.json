@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "NifiRegistry",
-    "dateExported": "2023-10-16T11:47:43.098Z",
+    "dateExported": "2023-10-17T10:39:23.517Z",
     "version": "1.1",
     "folders": [
         {
@@ -70,6 +70,54 @@
             "tests": []
         },
         {
+            "_id": "e63a4905-4f61-42bb-93f6-fef3a4434e1a",
+            "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
+            "containerId": "bd1ddd31-b44a-45f4-b297-5adbe6ee071d",
+            "name": "get groups",
+            "url": "http://localhost:8090/nifi-api/process-groups/root/process-groups",
+            "method": "GET",
+            "sortNum": 12500,
+            "created": "2023-10-17T06:57:43.717Z",
+            "modified": "2023-10-17T07:04:51.396Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "5cb3b346-e75a-40bd-8ffb-680af3f09000",
+            "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
+            "containerId": "bd1ddd31-b44a-45f4-b297-5adbe6ee071d",
+            "name": "get nifi resources",
+            "url": "http://localhost:8090/nifi-api/resources",
+            "method": "GET",
+            "sortNum": 13125,
+            "created": "2023-10-17T09:35:20.873Z",
+            "modified": "2023-10-17T09:44:15.924Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4d87bb32-17e8-47b0-9cf8-4becfb15dbe0",
+            "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
+            "containerId": "bd1ddd31-b44a-45f4-b297-5adbe6ee071d",
+            "name": "get group by id",
+            "url": "http://localhost:8090/nifi-api/process-groups/{id}",
+            "method": "GET",
+            "sortNum": 13750,
+            "created": "2023-10-17T07:06:26.454Z",
+            "modified": "2023-10-17T07:06:54.547Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "379ebfcf-018b-1000-ff03-756e79ccfbcf",
+                    "isPath": true
+                }
+            ],
+            "tests": []
+        },
+        {
             "_id": "949dfd47-affe-4237-a21b-82812fd5d92f",
             "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
             "containerId": "6d852025-cfbd-4c11-b8ea-abd90742fc73",
@@ -134,6 +182,36 @@
             "tests": []
         },
         {
+            "_id": "dcaab0ab-f6c8-4f0c-9920-eecf877170c8",
+            "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
+            "containerId": "bd1ddd31-b44a-45f4-b297-5adbe6ee071d",
+            "name": "create versioned group",
+            "url": "http://localhost:8090/nifi-api/process-groups/{root-group-id}/process-groups",
+            "method": "POST",
+            "sortNum": 17500,
+            "created": "2023-10-17T09:46:12.816Z",
+            "modified": "2023-10-17T10:38:47.067Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [
+                {
+                    "name": "root-group-id",
+                    "value": "0f444e53-018b-1000-e2ba-e3a36ba5b4ea",
+                    "isPath": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n\t\"revision\": {\r\n\t\t\"clientId\": \"3c2a0138-018b-1000-7a20-c09c1f504700\",\r\n\t\t\"version\": 0\r\n\t},\r\n\t\"component\": {\r\n\t\t\"name\": \"Versioned_PG\",\r\n\t\t\"position\": {\r\n\t\t  \"x\": 800.0,\r\n\t\t  \"y\": -50.0\r\n\t\t  },\r\n\t\t\"versionControlInformation\": {\r\n\t\t  \"registryId\": \"0f49820f-018b-1000-d8dc-42f3dc350c72\",\r\n      \"bucketId\": \"704db5e1-d41e-4f25-817f-8772b3890849\",\r\n      \"flowId\": \"b1eb8762-cf87-40ba-b112-d032a72f4321\",\r\n      \"version\": 3\r\n\t  }\r\n\t}\r\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
             "_id": "4c94dc3c-1ae2-4926-b73f-61d5651d6727",
             "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
             "containerId": "85b92776-fd44-46eb-a8cd-e5743fbdc89d",
@@ -170,7 +248,7 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2023-10-16T09:58:33.345Z",
-            "modified": "2023-10-16T10:09:18.109Z",
+            "modified": "2023-10-17T06:27:08.823Z",
             "headers": [
                 {
                     "name": "Content-Type",
@@ -180,7 +258,7 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\r\n  \"revision\": {\r\n    \"version\": 0\r\n  },\r\n  \"registry\": {\r\n    \"name\": \"Local repository - api copy\",\r\n    \"description\": \"Registry client, copy of 'Local repository' created via api \",\r\n    \"uri\": \"http://172.19.0.2:18090\",\r\n    \"properties\": {\r\n      \"url\": \"http://172.19.0.2:18090\",\r\n      \"ssl-context-service\": null\r\n    }\r\n  }\r\n}",
+                "raw": "{\n  \"revision\": {\n    \"version\": 0\n  },\n  \"registry\": {\n    \"name\": \"Local repository - api copy\",\n    \"description\": \"Registry client, copy of 'Local repository' created via api \",\n    \"uri\": \"http://172.19.0.2:18090\",\n    \"properties\": {\n      \"url\": \"http://172.19.0.2:18090\",\n      \"ssl-context-service\": null\n    }\n  }\n}",
                 "form": []
             },
             "tests": []
@@ -230,6 +308,36 @@
             "tests": []
         },
         {
+            "_id": "645c075a-9e9c-499b-8605-5b99db4b6988",
+            "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
+            "containerId": "bd1ddd31-b44a-45f4-b297-5adbe6ee071d",
+            "name": "set group version",
+            "url": "http://localhost:8090/nifi-api/versions/update-requests/process-groups/{id}",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-10-17T06:54:19.883Z",
+            "modified": "2023-10-17T08:27:11.158Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "379ebfcf-018b-1000-ff03-756e79ccfbcf",
+                    "isPath": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"processGroupRevision\": {\r\n\t    \"clientId\": \"3c2a0138-018b-1000-7a20-c09c1f504700\",\r\n\t    \"version\": 3\r\n\t},\r\n    \"disconnectedNodeAcknowledged\": false,\r\n    \"versionControlInformation\": {\r\n\t    \"groupId\": \"379ebfcf-018b-1000-ff03-756e79ccfbcf\",\r\n\t    \"registryId\": \"0f49820f-018b-1000-d8dc-42f3dc350c72\",\r\n\t    \"bucketId\": \"704db5e1-d41e-4f25-817f-8772b3890849\",\r\n\t    \"flowId\": \"b1eb8762-cf87-40ba-b112-d032a72f4321\",\r\n\t    \"version\": 3\r\n\t}\r\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
             "_id": "199b5ef7-8b1e-422c-b8c4-5d4c76e1c6fa",
             "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
             "containerId": "6d852025-cfbd-4c11-b8ea-abd90742fc73",
@@ -238,12 +346,12 @@
             "method": "GET",
             "sortNum": 40000,
             "created": "2023-10-15T11:53:48.763Z",
-            "modified": "2023-10-15T11:56:54.088Z",
+            "modified": "2023-10-17T08:17:00.381Z",
             "headers": [],
             "params": [
                 {
                     "name": "bucketId",
-                    "value": "492a1b13-82cf-4ab8-b081-bdaeefdd84b1",
+                    "value": "704db5e1-d41e-4f25-817f-8772b3890849",
                     "isPath": true
                 },
                 {
