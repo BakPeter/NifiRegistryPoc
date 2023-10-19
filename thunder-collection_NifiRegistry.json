@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "NifiRegistry",
-    "dateExported": "2023-10-17T10:39:23.517Z",
+    "dateExported": "2023-10-19T13:30:49.574Z",
     "version": "1.1",
     "folders": [
         {
@@ -24,6 +24,20 @@
             "containerId": "",
             "created": "2023-10-16T09:38:30.685Z",
             "sortNum": 40000
+        },
+        {
+            "_id": "52f9ceca-94aa-4d1a-ad1a-de0741dca3eb",
+            "name": "WebServer",
+            "containerId": "",
+            "created": "2023-10-18T06:57:50.123Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "57334f52-75ec-4c7a-914c-7460ca9b902c",
+            "name": "RegistryRnd",
+            "containerId": "52f9ceca-94aa-4d1a-ad1a-de0741dca3eb",
+            "created": "2023-10-19T11:23:56.716Z",
+            "sortNum": 60000
         }
     ],
     "requests": [
@@ -182,6 +196,20 @@
             "tests": []
         },
         {
+            "_id": "95026b26-7a62-49bf-97e7-a4c26cf52b25",
+            "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
+            "containerId": "57334f52-75ec-4c7a-914c-7460ca9b902c",
+            "name": "about",
+            "url": "http://localhost:5000/rnd/about",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2023-10-19T12:05:33.259Z",
+            "modified": "2023-10-19T12:06:27.691Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
             "_id": "dcaab0ab-f6c8-4f0c-9920-eecf877170c8",
             "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
             "containerId": "bd1ddd31-b44a-45f4-b297-5adbe6ee071d",
@@ -190,7 +218,7 @@
             "method": "POST",
             "sortNum": 17500,
             "created": "2023-10-17T09:46:12.816Z",
-            "modified": "2023-10-17T10:38:47.067Z",
+            "modified": "2023-10-17T10:46:00.367Z",
             "headers": [
                 {
                     "name": "Content-Type",
@@ -206,7 +234,7 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\r\n\t\"revision\": {\r\n\t\t\"clientId\": \"3c2a0138-018b-1000-7a20-c09c1f504700\",\r\n\t\t\"version\": 0\r\n\t},\r\n\t\"component\": {\r\n\t\t\"name\": \"Versioned_PG\",\r\n\t\t\"position\": {\r\n\t\t  \"x\": 800.0,\r\n\t\t  \"y\": -50.0\r\n\t\t  },\r\n\t\t\"versionControlInformation\": {\r\n\t\t  \"registryId\": \"0f49820f-018b-1000-d8dc-42f3dc350c72\",\r\n      \"bucketId\": \"704db5e1-d41e-4f25-817f-8772b3890849\",\r\n      \"flowId\": \"b1eb8762-cf87-40ba-b112-d032a72f4321\",\r\n      \"version\": 3\r\n\t  }\r\n\t}\r\n}",
+                "raw": "{\n\t\"revision\": {\n\t\t\"clientId\": \"3c2a0138-018b-1000-7a20-c09c1f504700\",\n\t\t\"version\": 0\n\t},\n\t\"component\": {\n\t\t\"name\": \"Versioned_PG\",\n\t\t\"position\": {\n\t\t  \"x\": 800.0,\n\t\t  \"y\": -50.0\n\t\t  },\n\t\t\"versionControlInformation\": {\n\t\t  \"registryId\": \"0f49820f-018b-1000-d8dc-42f3dc350c72\",\n      \"bucketId\": \"704db5e1-d41e-4f25-817f-8772b3890849\",\n      \"flowId\": \"b1eb8762-cf87-40ba-b112-d032a72f4321\",\n      \"version\": 4\n\t  }\n\t}\n}",
                 "form": []
             },
             "tests": []
@@ -264,6 +292,74 @@
             "tests": []
         },
         {
+            "_id": "c860a56b-dce0-4b55-ab3f-bc333e9ca01e",
+            "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
+            "containerId": "57334f52-75ec-4c7a-914c-7460ca9b902c",
+            "name": "get buckets",
+            "url": "http://localhost:5000/rnd/buckets",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-19T13:13:47.404Z",
+            "modified": "2023-10-19T13:15:52.142Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "99bcd094-a1eb-4d1f-8b20-bc870cc45005",
+            "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
+            "containerId": "57334f52-75ec-4c7a-914c-7460ca9b902c",
+            "name": "create bucket Copy",
+            "url": "http://localhost:5000/rnd/buckets",
+            "method": "POST",
+            "sortNum": 22500,
+            "created": "2023-10-19T13:16:49.298Z",
+            "modified": "2023-10-19T13:20:42.124Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"description\": \"Create bucket via web server test\",\n  \"name\": \"Web Server Created Bucket Rnd\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "13de195e-a46b-4d24-b4e3-82077341dc31",
+            "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
+            "containerId": "57334f52-75ec-4c7a-914c-7460ca9b902c",
+            "name": "export flow version",
+            "url": "http://localhost:5000/rnd/export/{flow-id}",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2023-10-19T11:09:00.509Z",
+            "modified": "2023-10-19T11:17:08.041Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [
+                {
+                    "name": "flow-id",
+                    "value": "flowid-12345",
+                    "isPath": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"version\": 2\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
             "_id": "bbfdf796-4f33-4f96-99d0-7806e720d17a",
             "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
             "containerId": "85b92776-fd44-46eb-a8cd-e5743fbdc89d",
@@ -316,7 +412,7 @@
             "method": "POST",
             "sortNum": 30000,
             "created": "2023-10-17T06:54:19.883Z",
-            "modified": "2023-10-17T08:27:11.158Z",
+            "modified": "2023-10-17T10:45:42.579Z",
             "headers": [
                 {
                     "name": "Content-Type",
@@ -332,7 +428,7 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\r\n    \"processGroupRevision\": {\r\n\t    \"clientId\": \"3c2a0138-018b-1000-7a20-c09c1f504700\",\r\n\t    \"version\": 3\r\n\t},\r\n    \"disconnectedNodeAcknowledged\": false,\r\n    \"versionControlInformation\": {\r\n\t    \"groupId\": \"379ebfcf-018b-1000-ff03-756e79ccfbcf\",\r\n\t    \"registryId\": \"0f49820f-018b-1000-d8dc-42f3dc350c72\",\r\n\t    \"bucketId\": \"704db5e1-d41e-4f25-817f-8772b3890849\",\r\n\t    \"flowId\": \"b1eb8762-cf87-40ba-b112-d032a72f4321\",\r\n\t    \"version\": 3\r\n\t}\r\n}",
+                "raw": "{\n    \"processGroupRevision\": {\n\t    \"clientId\": \"3c2a0138-018b-1000-7a20-c09c1f504700\",\n\t    \"version\": 3\n\t},\n    \"disconnectedNodeAcknowledged\": false,\n    \"versionControlInformation\": {\n\t    \"groupId\": \"379ebfcf-018b-1000-ff03-756e79ccfbcf\",\n\t    \"registryId\": \"0f49820f-018b-1000-d8dc-42f3dc350c72\",\n\t    \"bucketId\": \"704db5e1-d41e-4f25-817f-8772b3890849\",\n\t    \"flowId\": \"b1eb8762-cf87-40ba-b112-d032a72f4321\",\n\t    \"version\": 4\n\t}\n}",
                 "form": []
             },
             "tests": []
@@ -476,7 +572,7 @@
             "method": "POST",
             "sortNum": 62500,
             "created": "2023-10-16T08:19:12.687Z",
-            "modified": "2023-10-16T08:45:04.305Z",
+            "modified": "2023-10-17T10:45:17.585Z",
             "headers": [
                 {
                     "name": "Content-Type",
@@ -497,7 +593,7 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\r\n  \"externalControllerServices\": {},\r\n  \"flowContents\": {\r\n    \"comments\": \"\",\r\n    \"componentType\": \"PROCESS_GROUP\",\r\n    \"connections\": [\r\n      {\r\n        \"backPressureDataSizeThreshold\": \"1 GB\",\r\n        \"backPressureObjectThreshold\": 10000,\r\n        \"bends\": [],\r\n        \"componentType\": \"CONNECTION\",\r\n        \"destination\": {\r\n          \"comments\": \"\",\r\n          \"groupId\": \"5eefd606-96fe-3961-ba0f-9647875cd338\",\r\n          \"id\": \"74f447ea-928d-32b2-8d84-a870db7a0bc6\",\r\n          \"instanceIdentifier\": \"018b1000-c93a-1319-0d69-941cf380e715\",\r\n          \"name\": \"LogAttribute\",\r\n          \"type\": \"PROCESSOR\"\r\n        },\r\n        \"flowFileExpiration\": \"0 sec\",\r\n        \"groupIdentifier\": \"5eefd606-96fe-3961-ba0f-9647875cd338\",\r\n        \"identifier\": \"0a12fdb9-c739-35b2-b840-9fd14a5f7134\",\r\n        \"instanceIdentifier\": \"018b1000-df3b-1319-f39c-e22ac5cac3d0\",\r\n        \"labelIndex\": 1,\r\n        \"loadBalanceCompression\": \"DO_NOT_COMPRESS\",\r\n        \"loadBalanceStrategy\": \"DO_NOT_LOAD_BALANCE\",\r\n        \"name\": \"Flow Generated\",\r\n        \"partitioningAttribute\": \"\",\r\n        \"prioritizers\": [],\r\n        \"selectedRelationships\": [\r\n          \"success\"\r\n        ],\r\n        \"source\": {\r\n          \"comments\": \"\",\r\n          \"groupId\": \"5eefd606-96fe-3961-ba0f-9647875cd338\",\r\n          \"id\": \"e2b8dd0e-04e8-37e9-b307-dee473fd36d1\",\r\n          \"instanceIdentifier\": \"018b1000-b506-1319-b509-65ffe6334091\",\r\n          \"name\": \"GenerateFlowFile\",\r\n          \"type\": \"PROCESSOR\"\r\n        },\r\n        \"zIndex\": 0\r\n      }\r\n    ],\r\n    \"controllerServices\": [],\r\n    \"defaultBackPressureDataSizeThreshold\": \"1 GB\",\r\n    \"defaultBackPressureObjectThreshold\": 10000,\r\n    \"defaultFlowFileExpiration\": \"0 sec\",\r\n    \"flowFileConcurrency\": \"UNBOUNDED\",\r\n    \"flowFileOutboundPolicy\": \"STREAM_WHEN_AVAILABLE\",\r\n    \"funnels\": [],\r\n    \"identifier\": \"5eefd606-96fe-3961-ba0f-9647875cd338\",\r\n    \"inputPorts\": [],\r\n    \"instanceIdentifier\": \"3312ff3a-018b-1000-023d-b72ddcffd3fd\",\r\n    \"labels\": [],\r\n    \"name\": \"Log_Flow_File\",\r\n    \"outputPorts\": [],\r\n    \"position\": {\r\n      \"x\": 416.0,\r\n      \"y\": 120.0\r\n    },\r\n    \"processGroups\": [],\r\n    \"processors\": [\r\n      {\r\n        \"autoTerminatedRelationships\": [],\r\n        \"backoffMechanism\": \"PENALIZE_FLOWFILE\",\r\n        \"bulletinLevel\": \"WARN\",\r\n        \"bundle\": {\r\n          \"artifact\": \"nifi-standard-nar\",\r\n          \"group\": \"org.apache.nifi\",\r\n          \"version\": \"1.21.0\"\r\n        },\r\n        \"comments\": \"\",\r\n        \"componentType\": \"PROCESSOR\",\r\n        \"concurrentlySchedulableTaskCount\": 1,\r\n        \"executionNode\": \"ALL\",\r\n        \"groupIdentifier\": \"5eefd606-96fe-3961-ba0f-9647875cd338\",\r\n        \"identifier\": \"e2b8dd0e-04e8-37e9-b307-dee473fd36d1\",\r\n        \"instanceIdentifier\": \"018b1000-b506-1319-b509-65ffe6334091\",\r\n        \"maxBackoffPeriod\": \"10 mins\",\r\n        \"name\": \"GenerateFlowFile\",\r\n        \"penaltyDuration\": \"30 sec\",\r\n        \"position\": {\r\n          \"x\": 880.0,\r\n          \"y\": 104.0\r\n        },\r\n        \"properties\": {\r\n          \"character-set\": \"UTF-8\",\r\n          \"File Size\": \"0B\",\r\n          \"DE - custom attribute\": \"DE - attribute value\",\r\n          \"Batch Size\": \"1\",\r\n          \"Unique FlowFiles\": \"false\",\r\n          \"Data Format\": \"Text\"\r\n        },\r\n        \"propertyDescriptors\": {\r\n          \"character-set\": {\r\n            \"displayName\": \"Character Set\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"character-set\",\r\n            \"sensitive\": false\r\n          },\r\n          \"File Size\": {\r\n            \"displayName\": \"File Size\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"File Size\",\r\n            \"sensitive\": false\r\n          },\r\n          \"mime-type\": {\r\n            \"displayName\": \"Mime Type\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"mime-type\",\r\n            \"sensitive\": false\r\n          },\r\n          \"generate-ff-custom-text\": {\r\n            \"displayName\": \"Custom Text\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"generate-ff-custom-text\",\r\n            \"sensitive\": false\r\n          },\r\n          \"DE - custom attribute\": {\r\n            \"displayName\": \"DE - custom attribute\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"DE - custom attribute\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Batch Size\": {\r\n            \"displayName\": \"Batch Size\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Batch Size\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Unique FlowFiles\": {\r\n            \"displayName\": \"Unique FlowFiles\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Unique FlowFiles\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Data Format\": {\r\n            \"displayName\": \"Data Format\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Data Format\",\r\n            \"sensitive\": false\r\n          }\r\n        },\r\n        \"retriedRelationships\": [],\r\n        \"retryCount\": 10,\r\n        \"runDurationMillis\": 0,\r\n        \"scheduledState\": \"ENABLED\",\r\n        \"schedulingPeriod\": \"1 sec\",\r\n        \"schedulingStrategy\": \"TIMER_DRIVEN\",\r\n        \"style\": {},\r\n        \"type\": \"org.apache.nifi.processors.standard.GenerateFlowFile\",\r\n        \"yieldDuration\": \"1 sec\"\r\n      },\r\n      {\r\n        \"autoTerminatedRelationships\": [\r\n          \"success\"\r\n        ],\r\n        \"backoffMechanism\": \"PENALIZE_FLOWFILE\",\r\n        \"bulletinLevel\": \"WARN\",\r\n        \"bundle\": {\r\n          \"artifact\": \"nifi-standard-nar\",\r\n          \"group\": \"org.apache.nifi\",\r\n          \"version\": \"1.21.0\"\r\n        },\r\n        \"comments\": \"\",\r\n        \"componentType\": \"PROCESSOR\",\r\n        \"concurrentlySchedulableTaskCount\": 1,\r\n        \"executionNode\": \"ALL\",\r\n        \"groupIdentifier\": \"5eefd606-96fe-3961-ba0f-9647875cd338\",\r\n        \"identifier\": \"74f447ea-928d-32b2-8d84-a870db7a0bc6\",\r\n        \"instanceIdentifier\": \"018b1000-c93a-1319-0d69-941cf380e715\",\r\n        \"maxBackoffPeriod\": \"10 mins\",\r\n        \"name\": \"LogAttribute\",\r\n        \"penaltyDuration\": \"30 sec\",\r\n        \"position\": {\r\n          \"x\": 880.0,\r\n          \"y\": 312.0\r\n        },\r\n        \"properties\": {\r\n          \"character-set\": \"UTF-8\",\r\n          \"Log FlowFile Properties\": \"true\",\r\n          \"Log Level\": \"info\",\r\n          \"attributes-to-log-regex\": \".*\",\r\n          \"Output Format\": \"Line per Attribute\",\r\n          \"Log Payload\": \"false\"\r\n        },\r\n        \"propertyDescriptors\": {\r\n          \"Log prefix\": {\r\n            \"displayName\": \"Log prefix\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Log prefix\",\r\n            \"sensitive\": false\r\n          },\r\n          \"character-set\": {\r\n            \"displayName\": \"Character Set\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"character-set\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Log FlowFile Properties\": {\r\n            \"displayName\": \"Log FlowFile Properties\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Log FlowFile Properties\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Log Level\": {\r\n            \"displayName\": \"Log Level\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Log Level\",\r\n            \"sensitive\": false\r\n          },\r\n          \"attributes-to-ignore-regex\": {\r\n            \"displayName\": \"Attributes to Ignore by Regular Expression\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"attributes-to-ignore-regex\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Attributes to Ignore\": {\r\n            \"displayName\": \"Attributes to Ignore\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Attributes to Ignore\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Attributes to Log\": {\r\n            \"displayName\": \"Attributes to Log\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Attributes to Log\",\r\n            \"sensitive\": false\r\n          },\r\n          \"attributes-to-log-regex\": {\r\n            \"displayName\": \"Attributes to Log by Regular Expression\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"attributes-to-log-regex\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Output Format\": {\r\n            \"displayName\": \"Output Format\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Output Format\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Log Payload\": {\r\n            \"displayName\": \"Log Payload\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Log Payload\",\r\n            \"sensitive\": false\r\n          }\r\n        },\r\n        \"retriedRelationships\": [],\r\n        \"retryCount\": 10,\r\n        \"runDurationMillis\": 25,\r\n        \"scheduledState\": \"ENABLED\",\r\n        \"schedulingPeriod\": \"0 sec\",\r\n        \"schedulingStrategy\": \"TIMER_DRIVEN\",\r\n        \"style\": {},\r\n        \"type\": \"org.apache.nifi.processors.standard.LogAttribute\",\r\n        \"yieldDuration\": \"1 sec\"\r\n      }\r\n    ],\r\n    \"remoteProcessGroups\": [],\r\n    \"variables\": {}\r\n  },\r\n  \"flowEncodingVersion\": \"1.0\",\r\n  \"parameterContexts\": {},\r\n  \"parameterProviders\": {},\r\n  \"snapshotMetadata\": {\r\n    \"author\": \"anonymous\",\r\n    \"comments\": \"Processes are running\",\r\n    \"timestamp\": 1697445835481,\r\n    \"version\": 3\r\n  }\r\n}",
+                "raw": "{\r\n  \"externalControllerServices\": {},\r\n  \"flowContents\": {\r\n    \"comments\": \"\",\r\n    \"componentType\": \"PROCESS_GROUP\",\r\n    \"connections\": [\r\n      {\r\n        \"backPressureDataSizeThreshold\": \"1 GB\",\r\n        \"backPressureObjectThreshold\": 10000,\r\n        \"bends\": [],\r\n        \"componentType\": \"CONNECTION\",\r\n        \"destination\": {\r\n          \"groupId\": \"5eefd606-96fe-3961-ba0f-9647875cd338\",\r\n          \"id\": \"eb35b676-d5f1-3bfb-8cf7-9688d5a069d0\",\r\n          \"instanceIdentifier\": \"3d3abc30-018b-1000-6c98-e6684b89d8a3\",\r\n          \"name\": \"Logged\",\r\n          \"type\": \"OUTPUT_PORT\"\r\n        },\r\n        \"flowFileExpiration\": \"0 sec\",\r\n        \"groupIdentifier\": \"5eefd606-96fe-3961-ba0f-9647875cd338\",\r\n        \"identifier\": \"56b4e131-2a52-3ecc-9ff3-210963905cd0\",\r\n        \"instanceIdentifier\": \"3d3acb28-018b-1000-80b8-7f2e8b5134b4\",\r\n        \"labelIndex\": 1,\r\n        \"loadBalanceCompression\": \"DO_NOT_COMPRESS\",\r\n        \"loadBalanceStrategy\": \"DO_NOT_LOAD_BALANCE\",\r\n        \"name\": \"\",\r\n        \"partitioningAttribute\": \"\",\r\n        \"prioritizers\": [],\r\n        \"selectedRelationships\": [\r\n          \"success\"\r\n        ],\r\n        \"source\": {\r\n          \"comments\": \"\",\r\n          \"groupId\": \"5eefd606-96fe-3961-ba0f-9647875cd338\",\r\n          \"id\": \"74f447ea-928d-32b2-8d84-a870db7a0bc6\",\r\n          \"instanceIdentifier\": \"018b1000-c93a-1319-0d69-941cf380e715\",\r\n          \"name\": \"LogAttribute\",\r\n          \"type\": \"PROCESSOR\"\r\n        },\r\n        \"zIndex\": 0\r\n      },\r\n      {\r\n        \"backPressureDataSizeThreshold\": \"1 GB\",\r\n        \"backPressureObjectThreshold\": 10000,\r\n        \"bends\": [],\r\n        \"componentType\": \"CONNECTION\",\r\n        \"destination\": {\r\n          \"comments\": \"\",\r\n          \"groupId\": \"5eefd606-96fe-3961-ba0f-9647875cd338\",\r\n          \"id\": \"74f447ea-928d-32b2-8d84-a870db7a0bc6\",\r\n          \"instanceIdentifier\": \"018b1000-c93a-1319-0d69-941cf380e715\",\r\n          \"name\": \"LogAttribute\",\r\n          \"type\": \"PROCESSOR\"\r\n        },\r\n        \"flowFileExpiration\": \"0 sec\",\r\n        \"groupIdentifier\": \"5eefd606-96fe-3961-ba0f-9647875cd338\",\r\n        \"identifier\": \"0a12fdb9-c739-35b2-b840-9fd14a5f7134\",\r\n        \"instanceIdentifier\": \"018b1000-df3b-1319-f39c-e22ac5cac3d0\",\r\n        \"labelIndex\": 1,\r\n        \"loadBalanceCompression\": \"DO_NOT_COMPRESS\",\r\n        \"loadBalanceStrategy\": \"DO_NOT_LOAD_BALANCE\",\r\n        \"name\": \"Flow Generated\",\r\n        \"partitioningAttribute\": \"\",\r\n        \"prioritizers\": [],\r\n        \"selectedRelationships\": [\r\n          \"success\"\r\n        ],\r\n        \"source\": {\r\n          \"comments\": \"\",\r\n          \"groupId\": \"5eefd606-96fe-3961-ba0f-9647875cd338\",\r\n          \"id\": \"e2b8dd0e-04e8-37e9-b307-dee473fd36d1\",\r\n          \"instanceIdentifier\": \"018b1000-b506-1319-b509-65ffe6334091\",\r\n          \"name\": \"GenerateFlowFile\",\r\n          \"type\": \"PROCESSOR\"\r\n        },\r\n        \"zIndex\": 0\r\n      }\r\n    ],\r\n    \"controllerServices\": [],\r\n    \"defaultBackPressureDataSizeThreshold\": \"1 GB\",\r\n    \"defaultBackPressureObjectThreshold\": 10000,\r\n    \"defaultFlowFileExpiration\": \"0 sec\",\r\n    \"flowFileConcurrency\": \"UNBOUNDED\",\r\n    \"flowFileOutboundPolicy\": \"STREAM_WHEN_AVAILABLE\",\r\n    \"funnels\": [],\r\n    \"identifier\": \"5eefd606-96fe-3961-ba0f-9647875cd338\",\r\n    \"inputPorts\": [],\r\n    \"instanceIdentifier\": \"3312ff3a-018b-1000-023d-b72ddcffd3fd\",\r\n    \"labels\": [],\r\n    \"name\": \"Log_Flow_File\",\r\n    \"outputPorts\": [\r\n      {\r\n        \"allowRemoteAccess\": false,\r\n        \"componentType\": \"OUTPUT_PORT\",\r\n        \"concurrentlySchedulableTaskCount\": 1,\r\n        \"groupIdentifier\": \"5eefd606-96fe-3961-ba0f-9647875cd338\",\r\n        \"identifier\": \"eb35b676-d5f1-3bfb-8cf7-9688d5a069d0\",\r\n        \"instanceIdentifier\": \"3d3abc30-018b-1000-6c98-e6684b89d8a3\",\r\n        \"name\": \"Logged\",\r\n        \"position\": {\r\n          \"x\": 1496.0,\r\n          \"y\": 352.0\r\n        },\r\n        \"scheduledState\": \"ENABLED\",\r\n        \"type\": \"OUTPUT_PORT\"\r\n      }\r\n    ],\r\n    \"position\": {\r\n      \"x\": 416.0,\r\n      \"y\": 120.0\r\n    },\r\n    \"processGroups\": [],\r\n    \"processors\": [\r\n      {\r\n        \"autoTerminatedRelationships\": [],\r\n        \"backoffMechanism\": \"PENALIZE_FLOWFILE\",\r\n        \"bulletinLevel\": \"WARN\",\r\n        \"bundle\": {\r\n          \"artifact\": \"nifi-standard-nar\",\r\n          \"group\": \"org.apache.nifi\",\r\n          \"version\": \"1.21.0\"\r\n        },\r\n        \"comments\": \"\",\r\n        \"componentType\": \"PROCESSOR\",\r\n        \"concurrentlySchedulableTaskCount\": 1,\r\n        \"executionNode\": \"ALL\",\r\n        \"groupIdentifier\": \"5eefd606-96fe-3961-ba0f-9647875cd338\",\r\n        \"identifier\": \"e2b8dd0e-04e8-37e9-b307-dee473fd36d1\",\r\n        \"instanceIdentifier\": \"018b1000-b506-1319-b509-65ffe6334091\",\r\n        \"maxBackoffPeriod\": \"10 mins\",\r\n        \"name\": \"GenerateFlowFile\",\r\n        \"penaltyDuration\": \"30 sec\",\r\n        \"position\": {\r\n          \"x\": 880.0,\r\n          \"y\": 104.0\r\n        },\r\n        \"properties\": {\r\n          \"character-set\": \"UTF-8\",\r\n          \"File Size\": \"0B\",\r\n          \"DE - custom attribute\": \"DE - attribute value\",\r\n          \"Batch Size\": \"1\",\r\n          \"Unique FlowFiles\": \"false\",\r\n          \"Data Format\": \"Text\"\r\n        },\r\n        \"propertyDescriptors\": {\r\n          \"character-set\": {\r\n            \"displayName\": \"Character Set\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"character-set\",\r\n            \"sensitive\": false\r\n          },\r\n          \"File Size\": {\r\n            \"displayName\": \"File Size\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"File Size\",\r\n            \"sensitive\": false\r\n          },\r\n          \"mime-type\": {\r\n            \"displayName\": \"Mime Type\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"mime-type\",\r\n            \"sensitive\": false\r\n          },\r\n          \"generate-ff-custom-text\": {\r\n            \"displayName\": \"Custom Text\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"generate-ff-custom-text\",\r\n            \"sensitive\": false\r\n          },\r\n          \"DE - custom attribute\": {\r\n            \"displayName\": \"DE - custom attribute\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"DE - custom attribute\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Batch Size\": {\r\n            \"displayName\": \"Batch Size\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Batch Size\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Unique FlowFiles\": {\r\n            \"displayName\": \"Unique FlowFiles\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Unique FlowFiles\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Data Format\": {\r\n            \"displayName\": \"Data Format\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Data Format\",\r\n            \"sensitive\": false\r\n          }\r\n        },\r\n        \"retriedRelationships\": [],\r\n        \"retryCount\": 10,\r\n        \"runDurationMillis\": 0,\r\n        \"scheduledState\": \"ENABLED\",\r\n        \"schedulingPeriod\": \"1 sec\",\r\n        \"schedulingStrategy\": \"TIMER_DRIVEN\",\r\n        \"style\": {},\r\n        \"type\": \"org.apache.nifi.processors.standard.GenerateFlowFile\",\r\n        \"yieldDuration\": \"1 sec\"\r\n      },\r\n      {\r\n        \"autoTerminatedRelationships\": [],\r\n        \"backoffMechanism\": \"PENALIZE_FLOWFILE\",\r\n        \"bulletinLevel\": \"WARN\",\r\n        \"bundle\": {\r\n          \"artifact\": \"nifi-standard-nar\",\r\n          \"group\": \"org.apache.nifi\",\r\n          \"version\": \"1.21.0\"\r\n        },\r\n        \"comments\": \"\",\r\n        \"componentType\": \"PROCESSOR\",\r\n        \"concurrentlySchedulableTaskCount\": 1,\r\n        \"executionNode\": \"ALL\",\r\n        \"groupIdentifier\": \"5eefd606-96fe-3961-ba0f-9647875cd338\",\r\n        \"identifier\": \"74f447ea-928d-32b2-8d84-a870db7a0bc6\",\r\n        \"instanceIdentifier\": \"018b1000-c93a-1319-0d69-941cf380e715\",\r\n        \"maxBackoffPeriod\": \"10 mins\",\r\n        \"name\": \"LogAttribute\",\r\n        \"penaltyDuration\": \"30 sec\",\r\n        \"position\": {\r\n          \"x\": 880.0,\r\n          \"y\": 312.0\r\n        },\r\n        \"properties\": {\r\n          \"character-set\": \"UTF-8\",\r\n          \"Log FlowFile Properties\": \"true\",\r\n          \"Log Level\": \"info\",\r\n          \"attributes-to-log-regex\": \".*\",\r\n          \"Output Format\": \"Line per Attribute\",\r\n          \"Log Payload\": \"false\"\r\n        },\r\n        \"propertyDescriptors\": {\r\n          \"Log prefix\": {\r\n            \"displayName\": \"Log prefix\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Log prefix\",\r\n            \"sensitive\": false\r\n          },\r\n          \"character-set\": {\r\n            \"displayName\": \"Character Set\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"character-set\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Log FlowFile Properties\": {\r\n            \"displayName\": \"Log FlowFile Properties\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Log FlowFile Properties\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Log Level\": {\r\n            \"displayName\": \"Log Level\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Log Level\",\r\n            \"sensitive\": false\r\n          },\r\n          \"attributes-to-ignore-regex\": {\r\n            \"displayName\": \"Attributes to Ignore by Regular Expression\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"attributes-to-ignore-regex\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Attributes to Ignore\": {\r\n            \"displayName\": \"Attributes to Ignore\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Attributes to Ignore\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Attributes to Log\": {\r\n            \"displayName\": \"Attributes to Log\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Attributes to Log\",\r\n            \"sensitive\": false\r\n          },\r\n          \"attributes-to-log-regex\": {\r\n            \"displayName\": \"Attributes to Log by Regular Expression\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"attributes-to-log-regex\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Output Format\": {\r\n            \"displayName\": \"Output Format\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Output Format\",\r\n            \"sensitive\": false\r\n          },\r\n          \"Log Payload\": {\r\n            \"displayName\": \"Log Payload\",\r\n            \"identifiesControllerService\": false,\r\n            \"name\": \"Log Payload\",\r\n            \"sensitive\": false\r\n          }\r\n        },\r\n        \"retriedRelationships\": [],\r\n        \"retryCount\": 10,\r\n        \"runDurationMillis\": 25,\r\n        \"scheduledState\": \"ENABLED\",\r\n        \"schedulingPeriod\": \"0 sec\",\r\n        \"schedulingStrategy\": \"TIMER_DRIVEN\",\r\n        \"style\": {},\r\n        \"type\": \"org.apache.nifi.processors.standard.LogAttribute\",\r\n        \"yieldDuration\": \"1 sec\"\r\n      }\r\n    ],\r\n    \"remoteProcessGroups\": [],\r\n    \"variables\": {}\r\n  },\r\n  \"flowEncodingVersion\": \"1.0\",\r\n  \"parameterContexts\": {},\r\n  \"parameterProviders\": {},\r\n  \"snapshotMetadata\": {\r\n    \"author\": \"anonymous\",\r\n    \"comments\": \"Output after execution added\",\r\n    \"timestamp\": 1697539396939,\r\n    \"version\": 4\r\n  }\r\n}",
                 "form": []
             },
             "tests": []
@@ -511,7 +607,7 @@
             "method": "GET",
             "sortNum": 70000,
             "created": "2023-10-15T12:55:38.333Z",
-            "modified": "2023-10-16T08:44:47.084Z",
+            "modified": "2023-10-19T13:24:37.929Z",
             "headers": [],
             "params": [
                 {
@@ -526,7 +622,7 @@
                 },
                 {
                     "name": "versionNumber",
-                    "value": "3",
+                    "value": "5",
                     "isPath": true
                 }
             ],
