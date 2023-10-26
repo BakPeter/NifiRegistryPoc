@@ -5,11 +5,22 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Nifi Manager",
       "type": "node",
+      "request": "attach",
+      "remoteRoot": "/app/src/",
+      "port": 9229,
+      "address": "localhost",
+      "localRoot": "${workspaceFolder}/nifi-management-server/src/",
+      "protocol": "inspector",
+      "restart": true
+    },
+    {
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/app.js",
       "request": "launch",
-      "name": "Nifi management",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}\\nifi-management-server\\index.js"
+      "type": "node"
     }
   ]
 }

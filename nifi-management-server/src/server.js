@@ -1,15 +1,15 @@
+'use strict';
+
 const express = require('express');
 const bodyParser = require('body-parser');
-const azios = require('axios');
-
-require('dotenv').config();
 
 const settings = {
   serverName: process.env.SERVER_NAME,
   serverPort: process.env.SERVER_PORT,
 };
 
-console.log('NifiManagementServer started');
+const PORT = 5000;
+const HOST = '0.0.0.0';
 
 const app = express();
 app.use(bodyParser.json());
@@ -18,8 +18,10 @@ app.get('/helth', (req, res) => {
   res.status(200).send({ processConfigurations: settings });
 });
 
-app.listen(settings.serverPort, () => {
-  console.log(
-    `${settings.serverName} listenning on port ${settings.serverPort}`
-  );
+app.get('/', (req, res) => {
+  res.send('Hello world \n');
 });
+
+app.listen(PORT, HOST);
+
+console.log(`Running version 55555 on http://${HOST}:${PORT}`);
