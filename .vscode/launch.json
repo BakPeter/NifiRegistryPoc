@@ -5,7 +5,18 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Nifi Manager",
+      "name": "Nifi Manager Rnd - Attatch",
+      "type": "node",
+      "request": "attach",
+      "remoteRoot": "/app/src/",
+      "port": 9228,
+      "address": "localhost",
+      "localRoot": "${workspaceFolder}/nifi-management-server/src/",
+      "protocol": "inspector",
+      "restart": true
+    },
+    {
+      "name": "Nifi Manager Production - Attatch",
       "type": "node",
       "request": "attach",
       "remoteRoot": "/app/src/",
@@ -14,13 +25,6 @@
       "localRoot": "${workspaceFolder}/nifi-management-server/src/",
       "protocol": "inspector",
       "restart": true
-    },
-    {
-      "name": "Launch Program",
-      "program": "${workspaceFolder}/app.js",
-      "request": "launch",
-      "skipFiles": ["<node_internals>/**"],
-      "type": "node"
     }
   ]
 }

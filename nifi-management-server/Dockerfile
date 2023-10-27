@@ -12,6 +12,7 @@ COPY ./src/ /app/src/
 RUN mkdir ./data
 VOLUME [ "/data" ]
 
+# CMD node ./src
 ENTRYPOINT [ "nodemon","--inspect=0.0.0.0","./src/server.js" ]
 
 # FROM node:12.4.0-alpine as prod
