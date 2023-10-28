@@ -180,22 +180,22 @@ app.post(
     try {
       const bucketId = await getBucketId(req.params.bucketName);
       if (!bucketId) {
-        return {
-          status: 400,
-          body: {
-            message: 'no bucket with the given name',
-          },
-        };
+        res.status(400).send({
+          response: { message: 'no bucket with the given name' },
+          params: req.params,
+          body: req.body,
+        });
+        return;
       }
 
       const flowId = await getFlowId(bucketId, req.params.flowName);
       if (!flowId) {
-        return {
-          status: 400,
-          body: {
-            message: 'no flow with the given name',
-          },
-        };
+        res.status(400).send({
+          response: { message: 'no flow with the given name' },
+          params: req.params,
+          body: req.body,
+        });
+        return;
       }
 
       const flow = require(`/app/data/${req.body.versionFile}`);
@@ -213,6 +213,79 @@ app.post(
     }
   }
 );
+
+// nifi
+// /nifi/...
+app.post('/nifi/processgroups', async (req, res) => {
+  console.log(
+    `PUT registry/flows/verions/import ${JSON.stringify({
+      params: req.params,
+      body: req.body,
+    })}`
+  );
+
+  try {
+    const bucketId = await getBucketId(req.body.bucketName);
+    if (!bucketId) {
+      res.status(400).send({
+        response: { message: 'no bucket with the given name' },
+        params: req.params,
+        body: req.body,
+      });
+      return;
+    }
+
+    const flowId = await getFlowId(bucketId, req.body.flowName);
+    if (!flowId) {
+      res.status(400).send({
+        response: { message: 'no flow with the given name' },
+        params: req.params,
+        body: req.body,
+      });
+      return;
+    }
+
+    const registryId = await getReistryId(req.body.registryName);
+    if (!registryId) {
+      res.status(400).send({
+        response: { message: 'no registry with the given name' },
+        params: req.params,
+        body: req.body,
+      });
+      return;
+    }
+
+    const groupData = await getGroupData(req.body.groupName);
+    if (!groupData) {
+      res.status(400).send({
+        response: { message: 'no group with the given name' },
+        params: req.params,
+        body: req.body,
+      });
+      return;
+    }
+
+    const response = await axios.post(
+      `${settings.nifiHost}/nifi-api/versions/update-requests/process-groups/${groupData.id}`,
+      {
+        processGroupRevision: { ...groupData.revision },
+        versionControlInformation: {
+          groupId: groupData.id,
+          registryId,
+          bucketId,
+          flowId,
+          version: req.body.version,
+        },
+      }
+    );
+
+    res.status(200).send({ ...response.data });
+  } catch (error) {
+    error.response
+      ? res.status(error.response.status).send(error.response.data)
+      : res.status(500).send(error.message);
+  }
+});
 
 app.listen(settings.serverPort, settings.serverHost, () => {
   console.log(
@@ -312,6 +385,40 @@ async function getFlow(bucketId, flowId, versionNumber) {
       `${settings.nifiRegistryHost}/nifi-registry-api/buckets/${bucketId}/flows/${flowId}/versions/${versionNumber}/export`
     );
     return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function getReistryId(registryName) {
+  try {
+    const response = await axios.get(
+      `${settings.nifiHost}/nifi-api/controller/registry-clients`
+    );
+
+    const registry = response.data.registries.find((r) => {
+      return r.registry.name === registryName;
+    });
+
+    return registry ? registry.id : null;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function getGroupData(groupName) {
+  try {
+    const response = await axios.get(
+      `${settings.nifiHost}/nifi-api/process-groups/root/process-groups`
+    );
+
+    const processGroup = response.data.processGroups.find((pg) => {
+      return pg.component.name === groupName;
+    });
+
+    return processGroup
+      ? { id: processGroup.id, revision: { ...processGroup.revision } }
+      : null;
   } catch (error) {
     throw error;
   }
