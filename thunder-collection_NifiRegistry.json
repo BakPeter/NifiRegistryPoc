@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "NifiRegistry",
-    "dateExported": "2023-10-28T12:41:00.747Z",
+    "dateExported": "2023-10-29T14:30:34.271Z",
     "version": "1.1",
     "folders": [
         {
@@ -95,11 +95,11 @@
             "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
             "containerId": "bd1ddd31-b44a-45f4-b297-5adbe6ee071d",
             "name": "get groups",
-            "url": "http://localhost:8090/nifi-api/process-groups/root/process-groups",
+            "url": "http://localhost:8090/nifi-api/process-groups/root",
             "method": "GET",
             "sortNum": 12500,
             "created": "2023-10-17T06:57:43.717Z",
-            "modified": "2023-10-28T11:43:32.997Z",
+            "modified": "2023-10-29T12:40:08.243Z",
             "headers": [],
             "params": [],
             "tests": []
@@ -459,12 +459,12 @@
             "_id": "c9aaa7d0-d3e5-4c08-970d-02a770b57db9",
             "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
             "containerId": "c61122ff-cdbf-49d1-92d0-767602eb4ddc",
-            "name": "nifi - create versioned group",
+            "name": "registry - import group version",
             "url": "http://localhost:8890/registry/buckets/{bucketName}/flows/{flowName}/verions/import",
             "method": "POST",
             "sortNum": 40000,
             "created": "2023-10-28T09:11:24.277Z",
-            "modified": "2023-10-28T09:11:24.277Z",
+            "modified": "2023-10-29T13:25:45.811Z",
             "headers": [],
             "params": [
                 {
@@ -480,26 +480,31 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"versionFile\": \"DeEtlFlows-DE-Log_Flow_File-3.json\"\n}",
+                "raw": "{\n  \"versionFile\": \"DeEtlFlows-DE-Log_Flow_File-4.json\"\n}",
                 "form": []
             },
             "tests": []
         },
         {
-            "_id": "f545dbd9-c9e0-48a6-95ed-6108ca7bcaf3",
+            "_id": "e9614087-b1ec-48da-85d9-66ebbda3fc80",
             "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
             "containerId": "c61122ff-cdbf-49d1-92d0-767602eb4ddc",
-            "name": "registry - update flow version",
+            "name": "nifi - create versioned group",
             "url": "http://localhost:8890/nifi/processgroups",
             "method": "POST",
             "sortNum": 45000,
-            "created": "2023-10-27T15:25:15.282Z",
-            "modified": "2023-10-28T12:40:10.993Z",
-            "headers": [],
+            "created": "2023-10-29T12:36:13.006Z",
+            "modified": "2023-10-29T13:35:13.517Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n\t\t  \"registryName\": \"Local repository\",\n      \"bucketName\": \"DE\",\n      \"flowName\": \"Log_Flow_File\",\n      \"groupName\":\"Log_Flow_File\",\n      \"version\": 4\n}",
+                "raw": "{\n\t\t  \"registryName\": \"Local repository\",\n      \"bucketName\": \"DE\",\n      \"flowName\": \"Log_Flow_File\",\n      \"version\": 1\n}",
                 "form": []
             },
             "tests": []
@@ -527,6 +532,25 @@
                     "isPath": true
                 }
             ],
+            "tests": []
+        },
+        {
+            "_id": "f545dbd9-c9e0-48a6-95ed-6108ca7bcaf3",
+            "colId": "13f30e4d-e04c-4d9e-8c90-ffb77e00ab22",
+            "containerId": "c61122ff-cdbf-49d1-92d0-767602eb4ddc",
+            "name": "nifi - update flow version",
+            "url": "http://localhost:8890/nifi/processgroups/version",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-10-27T15:25:15.282Z",
+            "modified": "2023-10-29T13:41:57.358Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n\t\t  \"registryName\": \"Local repository\",\n      \"bucketName\": \"DE\",\n      \"flowName\": \"Log_Flow_File\",\n      \"groupName\":\"Log_Flow_File\",\n      \"version\": 4\n}",
+                "form": []
+            },
             "tests": []
         },
         {
@@ -786,7 +810,7 @@
             "method": "POST",
             "sortNum": 130000,
             "created": "2023-10-27T05:22:48.223Z",
-            "modified": "2023-10-27T16:57:08.888Z",
+            "modified": "2023-10-29T13:16:39.983Z",
             "headers": [],
             "params": [
                 {

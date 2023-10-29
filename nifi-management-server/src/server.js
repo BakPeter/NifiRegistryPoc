@@ -171,10 +171,12 @@ app.post(
   '/registry/buckets/:bucketName/flows/:flowName/verions/import',
   async (req, res) => {
     console.log(
-      `PUT registry/flows/verions/import ${JSON.stringify({
-        params: req.params,
-        body: req.body,
-      })}`
+      `POST /registry/buckets/:bucketName/flows/:flowName/verions/import ${JSON.stringify(
+        {
+          params: req.params,
+          body: req.body,
+        }
+      )}`
     );
 
     try {
@@ -218,7 +220,85 @@ app.post(
 // /nifi/...
 app.post('/nifi/processgroups', async (req, res) => {
   console.log(
-    `PUT registry/flows/verions/import ${JSON.stringify({
+    `POST /nifi/processgroups ${JSON.stringify({
+      params: req.params,
+      body: req.body,
+    })}`
+  );
+
+  try {
+    const bucketId = await getBucketId(req.body.bucketName);
+    if (!bucketId) {
+      res.status(400).send({
+        response: { message: 'no bucket with the given name' },
+        params: req.params,
+        body: req.body,
+      });
+      return;
+    }
+
+    const flowId = await getFlowId(bucketId, req.body.flowName);
+    if (!flowId) {
+      res.status(400).send({
+        response: { message: 'no flow with the given name' },
+        params: req.params,
+        body: req.body,
+      });
+      return;
+    }
+
+    const registryId = await getReistryId(req.body.registryName);
+    if (!registryId) {
+      res.status(400).send({
+        response: { message: 'no registry with the given name' },
+        params: req.params,
+        body: req.body,
+      });
+      return;
+    }
+
+    const rootGroupId = await getRootGroupId();
+    if (!rootGroupId) {
+      res.status(400).send({
+        response: { message: 'falied to fetch root group id' },
+        params: req.params,
+        body: req.body,
+      });
+      return;
+    }
+
+    const response = await axios.post(
+      `${settings.nifiHost}/nifi-api/process-groups/${rootGroupId}/process-groups`,
+      {
+        revision: {
+          version: 0,
+        },
+        component: {
+          position: {
+            x: 0.0,
+            y: 0.0,
+          },
+          versionControlInformation: {
+            registryId,
+            bucketId,
+            flowId,
+            version: req.body.version,
+          },
+        },
+      }
+    );
+
+    res.status(200).send({ ...response.data });
+  } catch (error) {
+    error.response
+      ? res.status(error.response.status).send(error.response.data)
+      : res.status(500).send(error.message);
+  }
+});
+
+app.post('/nifi/processgroups/version', async (req, res) => {
+  console.log(
+    `POST /nifi/processgroups/version ${JSON.stringify({
       params: req.params,
       body: req.body,
     })}`
@@ -401,6 +481,17 @@ async function getReistryId(registryName) {
     });
 
     return registry ? registry.id : null;
+  } catch (error) {
+    throw error;
+  }
+}
+async function getRootGroupId() {
+  try {
+    const response = await axios.get(
+      `${settings.nifiHost}/nifi-api/process-groups/root`
+    );
+
+    return response ? response.data.id : null;
   } catch (error) {
     throw error;
   }
